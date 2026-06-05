@@ -16,7 +16,7 @@ data= pd.read_csv("clean_data.csv")
 #PAGE TITLE
 st.title("🎓STUDENTS PERFORMANCE DASHBOARD")
 st.write("ANALYSIS OF FACTORS AFFECTING STUDENT EXAM PERFORMANCE")
-
+st.write("DESIGN BY NOR AIN SHAHIRA AND SYAMEEM ZUHAIRA")
 #SIDEBAR FILTERS
 st.sidebar.header("Filters")
 #Indentify maximum and minimum value for Study hours and Attendance
