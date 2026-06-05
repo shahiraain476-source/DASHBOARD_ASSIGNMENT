@@ -75,7 +75,8 @@ with col1:
 with col2:
     st.subheader("SCHOOL TYPE DISTRIBUTION")
     fig = px.pie(data,
-                 names="School Type")
+                 names="School Type",
+                 color_discrete_sequence=['purple','violet'])
     st.plotly_chart(fig)
 # OBJECTIVE 1
 col1, col2 = st.columns(2)
