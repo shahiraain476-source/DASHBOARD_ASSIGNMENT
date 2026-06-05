@@ -12,14 +12,6 @@ st.set_page_config(
 
 #LOADING DATA
 data= pd.read_csv("clean_data.csv")
-#BACKGROUND COLOR
-st.markdown("""
-<style>
-.stApp {
-    background-color:#000000;
-}
-</style>
-""", unsafe_allow_html=True)
 
 #PAGE TITLE
 st.title("🎓STUDENTS PERFORMANCE DASHBOARD")
