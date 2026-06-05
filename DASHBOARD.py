@@ -55,43 +55,47 @@ with col2:
 #column third
 with col3:
     st.metric("AVERAGE ATTENDANCE",
-              round(filtered_data["Attendance"].mean(),2)
+              round(filtered_data["Attendance"].mean(),2) #round to 2 decimal places
              )
 #column fourth
 with col4:
     st.metric("AVERAGE STUDY HOURS",
               round(filtered_data["Hours Studied"].mean(),2)
              )
+
 #BASIC INFORMATION
 col1, col2 = st.columns(2)
-#Histogram
+#HISTOGRAM
 with col1:
     st.subheader("EXAM SCORE DISTRIBUTION")
     fig = px.histogram(data, 
                        x="Exam Score",
                        color_discrete_sequence=["fuchsia"])
-    st.plotly_chart(fig)
-#SCHOOL TYPE PIE
+    st.plotly_chart(fig) #because use panda.express not matplotlib.pyplot
+    
+#PIE CHART
 with col2:
     st.subheader("SCHOOL TYPE DISTRIBUTION")
     fig = px.pie(data,
                  names="School Type",
                  color_discrete_sequence=['purple','violet'])
     st.plotly_chart(fig)
+    
 #CORRELATION CHART
-st.subheader("Correlation Heatmap")
+st.subheader("Correlation Heatmap") #correlation to know about the reationship
 corr_cols = ['Hours Studied',
              'Attendance',
              'Sleep Hours',
              'Tutoring Sessions',
              'Physical Activity',
              'Exam Score']
-corr_matrix = filtered_data[corr_cols].corr()
+corr_matrix = filtered_data[corr_cols].corr()  #use filter
 fig = px.imshow(corr_matrix,
                 text_auto=True,
-                color_continuous_scale="Viridis")
+                color_continuous_scale="Viridis") #viridis is color plate
 st.plotly_chart(fig,
                 use_container_width=True)
+
 # OBJECTIVE 1
 col1, col2 = st.columns(2)
 # HOURS STUDIED VS EXAM SCORE
@@ -123,7 +127,6 @@ with col1:
                 y="Sleep Hours",
                 markers=True, 
                 color_discrete_sequence=['purple'])
-
     st.plotly_chart(fig)
 
 #PHYSICAL ACTIVITY
@@ -137,25 +140,23 @@ with col2:
                 color_discrete_sequence=['magenta'])
     st.plotly_chart(fig)
 
-
 #OBJECTIVE 3
 col1, col2 = st.columns(2)
 #TUTORING SESSIONS
 with col1:
     st.subheader("Average Exam Score by Tutoring Sessions")
-    tutoring_score = data.groupby('Tutoring Sessions')['Exam Score'].mean().reset_index()
+    tutoring_score = data.groupby('Tutoring Sessions')['Exam Score'].mean().reset_index() #if there is no reset index, the exam score not a column anymore
     fig=px.line(tutoring_score,
                 x="Tutoring Sessions",
                 y="Exam Score",
                 markers= True, 
                 color_discrete_sequence=['maroon'])
- 
     st.plotly_chart(fig)
 
 #INTERNET ACCESS
 with col2:
     st.subheader("Average Exam Score by Internet Access")
-    internet_score = data.groupby('Internet Access')['Exam Score'].mean().reset_index()
+    internet_score = data.groupby('Internet Access')['Exam Score'].mean().reset_index() #if there is no reset index, might get error or empty plot
     fig=px.bar(internet_score,
                 x="Internet Access",
                 y="Exam Score",
