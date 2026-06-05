@@ -16,7 +16,7 @@ data= pd.read_csv("clean_data.csv")
 st.markdown("""
 <style>
 .stApp {
-    background-color:#1F456E;
+    background-color:#071A3D;
 }
 </style>
 """, unsafe_allow_html=True)
