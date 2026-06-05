@@ -7,16 +7,16 @@ import plotly.express as px
 st.set_page_config(
     page_title="STUDENTS PERFORMANCE DASHBOARD",
     page_icon="📊",
-    layout="wide" #more wide than before
-)
+    layout="wide") # to make layout more wider
 
 #LOADING DATA
-data= pd.read_csv("clean_data.csv")
+data= pd.read_csv("clean_data.csv") #use data that had been clean
 
 #PAGE TITLE
 st.title("🎓STUDENTS PERFORMANCE DASHBOARD")
 st.write("ANALYSIS OF FACTORS AFFECTING STUDENT EXAM PERFORMANCE")
 st.write("DESIGN BY NOR AIN SHAHIRA AND SYAMEEM ZUHAIRA")
+
 #SIDEBAR FILTERS
 st.sidebar.header("Filters")
 #Indentify maximum and minimum value for Study hours and Attendance
@@ -32,7 +32,7 @@ attendance_range=st.sidebar.slider('Attendance',
                                    att_min,
                                    att_max,
                                    (att_min,att_max))
-#start filter
+#start filter indentify range
 filtered_data=data[
     (data['Hours Studied'] >= hours_range[0]) &
     (data['Hours Studied'] <= hours_range[1]) &
