@@ -20,7 +20,7 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-st.title("My App")
+
 #PAGE TITLE
 st.title("🎓STUDENTS PERFORMANCE DASHBOARD")
 st.write("ANALYSIS OF FACTORS AFFECTING STUDENT EXAM PERFORMANCE")
