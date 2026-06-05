@@ -69,7 +69,7 @@ with col1:
     st.subheader("EXAM SCORE DISTRIBUTION")
     fig = px.histogram(data, 
                        x="Exam Score",
-                       color_discrete_sequence=["red"])
+                       color_discrete_sequence=["fuchsia"])
     st.plotly_chart(fig)
 #SCHOOL TYPE PIE
 with col2:
