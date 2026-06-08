@@ -84,7 +84,7 @@ with col2:
 #CORRELATION CHART
 st.subheader("Correlation Heatmap") #correlation to know about the reationship
 corr_cols = ['Hours Studied',
-              'Attendance',
+             'Attendance',
              'Sleep Hours',
              'Tutoring Sessions',
              'Physical Activity',
