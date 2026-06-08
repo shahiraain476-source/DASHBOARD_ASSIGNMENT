@@ -11,6 +11,17 @@ st.set_page_config(
 
 #LOADING DATA
 data= pd.read_csv("clean_data.csv") #use data that had been clean
+#BACKGROUND
+st.markdown("""
+<style>
+.stApp {
+        background: linear-gradient(135deg,
+                                    #081028,
+                                    #0A1E4D,
+                                    #081028);
+        }
+</style>
+""", unsafe_allow_html=True)
 
 #PAGE TITLE
 st.title("🎓STUDENTS PERFORMANCE DASHBOARD")
@@ -44,24 +55,28 @@ st.subheader("OVERVIEW")
 col1, col2, col3, col4 = st.columns(4) # to create 4 column next to each other
 #column first
 with col1: #anything inside this will display in the first column
-    st.metric("TOTAL STUDENTS",
-              len(filtered_data) #counts the number of students in filtered data. we use filter
-             )
+    with st.container(border=True):
+        st.metric("TOTAL STUDENTS",
+                  len(filtered_data) #counts the number of students in filtered data. we use filter
+                 )
 #column second
 with col2:
-    st.metric("AVERAGE EXAM SCORE",
-              round(filtered_data["Exam Score"].mean(),2) #Calculate the average and display
-             )
+    with st.container(border=True):
+        st.metric("AVERAGE EXAM SCORE",
+                  round(filtered_data["Exam Score"].mean(),2) #Calculate the average and display
+                 )
 #column third
 with col3:
-    st.metric("AVERAGE ATTENDANCE",
-              round(filtered_data["Attendance"].mean(),2) #round to 2 decimal places
-             )
+    with st.container(border=True):
+        st.metric("AVERAGE ATTENDANCE",
+                  round(filtered_data["Attendance"].mean(),2) #round to 2 decimal places
+                 )
 #column fourth
 with col4:
-    st.metric("AVERAGE STUDY HOURS",
-              round(filtered_data["Hours Studied"].mean(),2)
-             )
+    with st.container(border=True):
+        st.metric("AVERAGE STUDY HOURS",
+                  round(filtered_data["Hours Studied"].mean(),2) 
+                 )
 
 #BASIC INFORMATION
 col1, col2 = st.columns(2)
@@ -71,6 +86,9 @@ with col1:
     fig = px.histogram(data, 
                        x="Exam Score",
                        color_discrete_sequence=["fuchsia"])
+    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
+                      paper_bgcolor="rgba(0,0,0,0)",
+                      font_color="white")
     st.plotly_chart(fig) #because use panda.express not matplotlib.pyplot
     
 #PIE CHART
@@ -79,6 +97,9 @@ with col2:
     fig = px.pie(data,
                  names="School Type",
                  color_discrete_sequence=['purple','violet'])
+    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
+                      paper_bgcolor="rgba(0,0,0,0)",
+                      font_color="white")
     st.plotly_chart(fig)
 
 #CORRELATION CHART 
@@ -93,6 +114,9 @@ corr_matrix = filtered_data[corr_cols].corr() #use filter
 fig = px.imshow(corr_matrix,
                 text_auto=True,
                 color_continuous_scale="Viridis") #viridis is color plate
+fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
+                  paper_bgcolor="rgba(0,0,0,0)",
+                  font_color="white")
 st.plotly_chart(fig,
                 use_container_width=True)
 
@@ -105,6 +129,9 @@ with col1:
                      x="Hours Studied", 
                      y="Exam Score", 
                      color_discrete_sequence=["purple"])
+    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
+                      paper_bgcolor="rgba(0,0,0,0)",
+                      font_color="white")
     st.plotly_chart(fig)
 
 #ATTENDANCE VS EXAM SCORE
@@ -114,6 +141,9 @@ with col2:
                     x="Attendance", 
                     y="Exam Score", 
               color_discrete_sequence = ["pink"])
+    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
+                      paper_bgcolor="rgba(0,0,0,0)",
+                      font_color="white")
     st.plotly_chart(fig)
 
 #OBJECTIVE 2
@@ -127,6 +157,9 @@ with col1:
                 y="Sleep Hours",
                 markers=True, 
                 color_discrete_sequence=['purple'])
+    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
+                      paper_bgcolor="rgba(0,0,0,0)",
+                      font_color="white")
     st.plotly_chart(fig)
 
 #PHYSICAL ACTIVITY
@@ -138,6 +171,9 @@ with col2:
                 y="Physical Activity",
                 markers=True, 
                 color_discrete_sequence=['magenta'])
+    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
+                      paper_bgcolor="rgba(0,0,0,0)",
+                      font_color="white")
     st.plotly_chart(fig)
 
 #OBJECTIVE 3
@@ -151,6 +187,9 @@ with col1:
                 y="Exam Score",
                 markers= True, 
                 color_discrete_sequence=['maroon'])
+    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
+                      paper_bgcolor="rgba(0,0,0,0)",
+                      font_color="white")
     st.plotly_chart(fig)
 
 #INTERNET ACCESS
@@ -161,6 +200,9 @@ with col2:
                 x="Internet Access",
                 y="Exam Score",
                 color_discrete_sequence=['violet'])
+    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
+                      paper_bgcolor="rgba(0,0,0,0)",
+                      font_color="white")
     st.plotly_chart(fig)
 
 #DISPLAY RAW DATA
