@@ -67,9 +67,16 @@ h3 {
 """, unsafe_allow_html=True)
 
 #PAGE TITLE
-st.title("🎓STUDENTS PERFORMANCE DASHBOARD")
+st.title("WELCOME TO STUDENTS PERFORMANCE DASHBOARD")
 st.write("ANALYSIS OF FACTORS AFFECTING STUDENT EXAM PERFORMANCE")
 st.write("DESIGN BY NOR AIN SHAHIRA AND SYAMEEM ZUHAIRA")
+
+#SIDEBAR TITLE
+st.sidebar.markdown("""
+<h3 style='text-align:left; color:white;'>
+🎓 Student Performance Dashboard
+</h3>
+""", unsafe_allow_html=True)
 
 #SIDEBAR FILTERS
 st.sidebar.header("Filters")
@@ -99,25 +106,25 @@ col1, col2, col3, col4 = st.columns(4) # to create 4 column next to each other
 #column first
 with col1: #anything inside this will display in the first column
     with st.container(border=True):
-        st.metric("TOTAL STUDENTS",
+        st.metric("👨‍🎓 TOTAL STUDENTS",
                   len(filtered_data) #counts the number of students in filtered data. we use filter
                  )
 #column second
 with col2:
     with st.container(border=True):
-        st.metric("AVERAGE EXAM SCORE",
+        st.metric("📈 AVERAGE EXAM SCORE",
                   round(filtered_data["Exam Score"].mean(),2) #Calculate the average and display
                  )
 #column third
 with col3:
     with st.container(border=True):
-        st.metric("AVERAGE ATTENDANCE",
+        st.metric("📅 AVERAGE ATTENDANCE",
                   round(filtered_data["Attendance"].mean(),2) #round to 2 decimal places
                  )
 #column fourth
 with col4:
     with st.container(border=True):
-        st.metric("AVERAGE STUDY HOURS",
+        st.metric("📚 AVERAGE STUDY HOURS",
                   round(filtered_data["Hours Studied"].mean(),2) 
                  )
 
