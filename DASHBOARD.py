@@ -74,7 +74,7 @@ st.write("DESIGN BY NOR AIN SHAHIRA AND SYAMEEM ZUHAIRA")
 #SIDEBAR TITLE
 st.sidebar.markdown("""
 <h3 style='text-align:left; color:white;'>
-🎓 Student Performance Dashboard
+🎓 STUDENT PERFORMANCE DASHBOARD
 </h3>
 """, unsafe_allow_html=True)
 
