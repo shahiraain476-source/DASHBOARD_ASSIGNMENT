@@ -14,12 +14,55 @@ data= pd.read_csv("clean_data.csv") #use data that had been clean
 #BACKGROUND
 st.markdown("""
 <style>
+
+/* Main Background */
 .stApp {
-        background: linear-gradient(135deg,
-                                    #081028,
-                                    #0A1E4D,
-                                    #081028);
-        }
+    background: linear-gradient(135deg,
+                                #0a001f,
+                                #160033,
+                                #240046);
+    color: white;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background: #120028;
+}
+
+/* Sidebar Text */
+section[data-testid="stSidebar"] * {
+    color: white !important;
+}
+
+/* KPI Cards */
+div[data-testid="metric-container"] {
+    background: linear-gradient(135deg, #5a189a, #ff4dd2);
+    border: none;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(255,77,210,0.3);
+}
+
+/* Metric Labels */
+div[data-testid="metric-container"] label {
+    color: white !important;
+}
+
+/* Metric Values */
+div[data-testid="metric-container"] div {
+    color: white !important;
+}
+
+/* Dataframe */
+[data-testid="stDataFrame"] {
+    border-radius: 15px;
+}
+
+/* Subheader */
+h3 {
+    color: #ff80df !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -86,8 +129,8 @@ with col1:
     fig = px.histogram(data, 
                        x="Exam Score",
                        color_discrete_sequence=["fuchsia"])
-    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                      paper_bgcolor="rgba(0,0,0,0)",
+    fig.update_layout(plot_bgcolor="#1a0033",
+                      paper_bgcolor="#1a0033",
                       font_color="white")
     st.plotly_chart(fig) #because use panda.express not matplotlib.pyplot
     
@@ -97,8 +140,8 @@ with col2:
     fig = px.pie(data,
                  names="School Type",
                  color_discrete_sequence=['purple','violet'])
-    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                      paper_bgcolor="rgba(0,0,0,0)",
+    fig.update_layout(plot_bgcolor="#1a0033",
+                      paper_bgcolor="#1a0033",
                       font_color="white")
     st.plotly_chart(fig)
 
@@ -114,8 +157,8 @@ corr_matrix = filtered_data[corr_cols].corr() #use filter
 fig = px.imshow(corr_matrix,
                 text_auto=True,
                 color_continuous_scale="Viridis") #viridis is color plate
-fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                  paper_bgcolor="rgba(0,0,0,0)",
+fig.update_layout(plot_bgcolor="#1a0033",
+                  paper_bgcolor="#1a0033",
                   font_color="white")
 st.plotly_chart(fig,
                 use_container_width=True)
@@ -129,8 +172,8 @@ with col1:
                      x="Hours Studied", 
                      y="Exam Score", 
                      color_discrete_sequence=["purple"])
-    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                      paper_bgcolor="rgba(0,0,0,0)",
+    fig.update_layout(plot_bgcolor="#1a0033",
+                      paper_bgcolor="#1a0033",
                       font_color="white")
     st.plotly_chart(fig)
 
@@ -141,8 +184,8 @@ with col2:
                     x="Attendance", 
                     y="Exam Score", 
               color_discrete_sequence = ["pink"])
-    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                      paper_bgcolor="rgba(0,0,0,0)",
+    fig.update_layout(plot_bgcolor="#1a0033",
+                      paper_bgcolor="#1a0033",
                       font_color="white")
     st.plotly_chart(fig)
 
@@ -157,8 +200,8 @@ with col1:
                 y="Sleep Hours",
                 markers=True, 
                 color_discrete_sequence=['purple'])
-    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                      paper_bgcolor="rgba(0,0,0,0)",
+    fig.update_layout(plot_bgcolor="#1a0033",
+                      paper_bgcolor="#1a0033",
                       font_color="white")
     st.plotly_chart(fig)
 
@@ -171,8 +214,8 @@ with col2:
                 y="Physical Activity",
                 markers=True, 
                 color_discrete_sequence=['magenta'])
-    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                      paper_bgcolor="rgba(0,0,0,0)",
+    fig.update_layout(plot_bgcolor="#1a0033",
+                      paper_bgcolor="#1a0033",
                       font_color="white")
     st.plotly_chart(fig)
 
@@ -187,8 +230,8 @@ with col1:
                 y="Exam Score",
                 markers= True, 
                 color_discrete_sequence=['maroon'])
-    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                      paper_bgcolor="rgba(0,0,0,0)",
+    fig.update_layout(plot_bgcolor="#1a0033",
+                      paper_bgcolor="#1a0033",
                       font_color="white")
     st.plotly_chart(fig)
 
@@ -200,8 +243,8 @@ with col2:
                 x="Internet Access",
                 y="Exam Score",
                 color_discrete_sequence=['violet'])
-    fig.update_layout(plot_bgcolor="rgba(0,0,0,0)",
-                      paper_bgcolor="rgba(0,0,0,0)",
+    fig.update_layout(plot_bgcolor="#1a0033",
+                      paper_bgcolor="#1a0033",
                       font_color="white")
     st.plotly_chart(fig)
 
