@@ -64,7 +64,7 @@ with col4:
              )
 
 #BASIC INFORMATION
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 #HISTOGRAM
 with col1:
     st.subheader("EXAM SCORE DISTRIBUTION")
@@ -82,19 +82,21 @@ with col2:
     st.plotly_chart(fig)
     
 #CORRELATION CHART
-st.subheader("Correlation Heatmap") #correlation to know about the reationship
-corr_cols = ['Hours Studied',
-             'Attendance',
-             'Sleep Hours',
-             'Tutoring Sessions',
-             'Physical Activity',
-             'Exam Score']
-corr_matrix = filtered_data[corr_cols].corr()  #use filter
-fig = px.imshow(corr_matrix,
-                text_auto=True,
-                color_continuous_scale="Viridis") #viridis is color plate
-st.plotly_chart(fig,
-                use_container_width=True)
+with col3:
+    st.subheader("Correlation Heatmap") #correlation to know about the reationship
+    corr_cols = ['Hours Studied',
+                 'Attendance',
+                 'Sleep Hours',
+                 'Tutoring Sessions',
+                 'Physical Activity',
+                 'Exam Score']
+    corr_matrix = filtered_data[corr_cols].corr()  #use filter
+    fig = px.imshow(corr_matrix,
+                    text_auto=True,
+                    color_continuous_scale="Viridis") #viridis is color plate
+    st.plotly_chart(fig,
+                    use_container_width=True)
+
 
 # OBJECTIVE 1
 col1, col2 = st.columns(2)
