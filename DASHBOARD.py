@@ -82,7 +82,7 @@ with col2:
     st.plotly_chart(fig)
 
 #CORRELATION CHART 
-st.subheader("Correlation Heatmap") #correlation to know about the reationship
+st.subheader("CORRELATION HEATMAP") #correlation to know about the reationship
 corr_cols = ['Hours Studied',
              'Attendance',
              'Sleep Hours',
@@ -100,7 +100,7 @@ st.plotly_chart(fig,
 col1, col2 = st.columns(2)
 # HOURS STUDIED VS EXAM SCORE
 with col1:
-    st.subheader("Relationship between Study Hours and Exam Score")
+    st.subheader("RELATIONSHI BETWEEN STUDY HOURS AND EXAM SCORE")
     fig = px.scatter(data,
                      x="Hours Studied", 
                      y="Exam Score", 
@@ -109,7 +109,7 @@ with col1:
 
 #ATTENDANCE VS EXAM SCORE
 with col2:
-    st.subheader("Relationship between Attendance and Exam Score")
+    st.subheader("RELATIONSHIP BETWEEN ATTENDANCE AND EXAM SCORE")
     fig= px.scatter(data,
                     x="Attendance", 
                     y="Exam Score", 
@@ -120,7 +120,7 @@ with col2:
 col1, col2 = st.columns(2)
 #SLEEP HOURS
 with col1:
-    st.subheader("Average Students Sleep Hours by Exam Score")
+    st.subheader("AVERAGE STUDENTS SLEEP HOURS BY EXAM SCORE")
     sleep_score = data.groupby('Exam Score')['Sleep Hours'].mean().reset_index()
     fig=px.line(sleep_score,
                 x="Exam Score",
@@ -131,7 +131,7 @@ with col1:
 
 #PHYSICAL ACTIVITY
 with col2:
-    st.subheader("Average Physical Activity by Exam Score")
+    st.subheader("AVERAGE PHYSICAL ACTIVITY BY EXAM SCORE")
     activity_score = data.groupby('Exam Score')['Physical Activity'].mean().reset_index()
     fig=px.line(activity_score,
                 x="Exam Score",
@@ -144,7 +144,7 @@ with col2:
 col1, col2 = st.columns(2)
 #TUTORING SESSIONS
 with col1:
-    st.subheader("Average Exam Score by Tutoring Sessions")
+    st.subheader("AVERAGE EXAM SCORE BY TUTORING SESSIONS")
     tutoring_score = data.groupby('Tutoring Sessions')['Exam Score'].mean().reset_index() #if there is no reset index, the exam score not a column anymore
     fig=px.line(tutoring_score,
                 x="Tutoring Sessions",
@@ -155,7 +155,7 @@ with col1:
 
 #INTERNET ACCESS
 with col2:
-    st.subheader("Average Exam Score by Internet Access")
+    st.subheader("AVERAGE EXAM SCORE BY INTERNET ACCESS")
     internet_score = data.groupby('Internet Access')['Exam Score'].mean().reset_index() #if there is no reset index, might get error or empty plot
     fig=px.bar(internet_score,
                 x="Internet Access",
